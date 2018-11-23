@@ -9,7 +9,20 @@ import { CameraNavWithOptions } from '../components'
 // Import camera module
 import { RNCamera } from 'react-native-camera'
 
+// Import Module to access camera roll
+import ImagePicker from 'react-native-image-picker';
+
 import styles from '../styles'
+
+// Options to open camera roll
+const options = {
+  title: 'Select Watch photo',
+  customButtons: [{ name: 'fb', title: 'Choose Photo from Facebook' }],
+  storageOptions: {
+    skipBackup: true,
+    path: 'images',
+  },
+};
 
 class Camera extends Component {
 
@@ -18,8 +31,7 @@ class Camera extends Component {
     if (this.camera) {
       const options = { quality: 0.5, base64: true };
       const data = await this.camera.takePictureAsync(options)
-      console.log(data.uri);
-      this.props.navigation.navigate('WhatchInfo', {img: data.uri})
+      this.props.navigation.navigate('WatchInfo', {img: data.uri})
     }
   }
 
@@ -30,7 +42,17 @@ class Camera extends Component {
 
   // Open Camera roll on Album btn presss
   onAlbum = () => {
-    console.log('open camera roll')
+    ImagePicker.launchImageLibrary(options, (response) => {
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      } else if (response.customButton) {
+        console.log('User tapped custom button: ', response.customButton);
+      } else {
+        this.props.navigation.navigate('WatchInfo', {img: response.uri})
+      }
+    });
   }
 
 	render() {
@@ -45,9 +67,6 @@ class Camera extends Component {
           flashMode={RNCamera.Constants.FlashMode.off}
           permissionDialogTitle={'Permission to use camera'}
           permissionDialogMessage={'We need your permission to use your camera phone'}
-          onGoogleVisionBarcodesDetected={({ barcodes }) => {
-            console.log(barcodes)
-          }}
         />
         <CameraNavWithOptions onCameraPress={this.takePhoto} onCancel={this.onCancel} onAlbum={this.onAlbum} />
       </View>

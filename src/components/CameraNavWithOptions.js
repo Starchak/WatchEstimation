@@ -24,6 +24,7 @@ class CameraNavWithOptions extends Component {
 
   // Press on Cancel btn require props function from parent
   onCancel = () => {
+
     this.props.onCancel()
   }
 
@@ -38,7 +39,7 @@ class CameraNavWithOptions extends Component {
         <TouchableOpacity style={styles.navTextEl} onPress={this.onCancel}>
           <Text style={styles.navText}>Cancel</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.cameraCirkle, {marginBottom: 0}]} onPress={this.onCameraPress}>
+        <TouchableOpacity style={[styles.cameraCirkle, {marginBottom: 0}]} onPress={this.pressOnCamera}>
           <Image style={styles.cameraIcon} source={camera_icon} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.navTextEl} onPress={this.onAlbum}>

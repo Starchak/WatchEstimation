@@ -20,8 +20,8 @@ export const Root = createStackNavigator({
       header: null
     }
   },
-  WhatchInfo: {
-    screen: Camera,
+  WatchInfo: {
+    screen: WatchInfo,
     navigationOptions: {
       title: null,
       header: null
@@ -29,7 +29,7 @@ export const Root = createStackNavigator({
   }
 },
 {
-	initialRouteName: 'Info',
+	initialRouteName: 'Camera',
 	mode: 'modal',
 	headerMode: 'screen',
 });

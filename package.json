@@ -8,9 +8,11 @@
   },
   "dependencies": {
     "react": "16.6.1",
+    "react-cloud-vision-api": "^0.3.0",
     "react-native": "0.57.5",
     "react-native-camera": "^1.4.3",
     "react-native-gesture-handler": "^1.0.9",
+    "react-native-image-picker": "^0.27.1",
     "react-native-iphone-x-helper": "^1.2.0",
     "react-navigation": "^3.0.0"
   },
