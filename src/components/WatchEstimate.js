@@ -19,15 +19,19 @@ class WatchEstimate extends Component {
         </View>
         <View style={styles.estimateBottom}>
           <View style={styles.priceBlock}>
-            <Text style={styles.topPriceText}>Price from</Text>
-            <Text style={styles.priceText}>$1200</Text>
+            <View>
+              <Text style={styles.topPriceText}>Price from</Text>
+              <Text style={styles.priceText}>$1200</Text>
+            </View>
           </View>
-          <View style={[styles.priceBlock, {flex: 1}]}>
-            <Text>-</Text>
+          <View style={[styles.priceBlock, {flex: 0.5}]}>
+            <Text style={styles.priceText}>-</Text>
           </View>
           <View style={styles.priceBlock}>
-            <Text style={styles.topPriceText}>Price to</Text>
-            <Text style={styles.priceText}>$1350</Text>
+            <View>
+              <Text style={styles.topPriceText}>Price to</Text>
+              <Text style={styles.priceText}>$1350</Text>
+            </View>
           </View>
         </View>
       </View>

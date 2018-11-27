@@ -28,7 +28,7 @@ module.exports = StyleSheet.create({
     alignItems: 'center',
   },
   instructionsText: {
-    fontSize: 32,
+    fontSize: width*0.08,
     marginTop: 25,
     color: '#555'
   },
@@ -96,7 +96,7 @@ module.exports = StyleSheet.create({
     justifyContent: 'center'
   },
   loadText: {
-    fontSize: 32,
+    fontSize: width*0.08,
     color: '#555'
   },
   watchImg: {
@@ -117,11 +117,11 @@ module.exports = StyleSheet.create({
     flexDirection: 'row'
   },
   editTextName: {
-    fontSize: 32,
+    fontSize: width*0.08,
     color: '#555'
   },
   editTextDesc: {
-    fontSize: 24,
+    fontSize: width*0.06,
     color: '#555'
   },
   editBtn: {
@@ -135,21 +135,21 @@ module.exports = StyleSheet.create({
   },
   confirmBtn: {
     alignSelf: 'center',
-    width: width * 0.65,
-    height: 65,
+    width: width * 0.55,
+    height: width*0.18,
     backgroundColor: '#4485ed',
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
-    bottom: 50
+    bottom: width * 0.06
   },
   confirmBtnText: {
     color: '#fff',
-    fontSize: 32,
+    fontSize: width*0.08,
   },
   editText: {
-    width: width*0.80,
-    fontSize: 32,
+    width: width*0.75,
+    fontSize: width*0.08,
     borderBottomWidth: 2,
     borderColor: '#f1f1f1',
     paddingBottom: 3,
@@ -180,10 +180,15 @@ module.exports = StyleSheet.create({
     alignItems: 'center'
   },
   topPriceText: {
-
+    position: 'absolute',
+    alignSelf: 'flex-start',
+    fontSize: width*0.05,
+    color: '#555',
+    top: -20
   },
   priceText: {
-    fontSize: 32,
-    color: 'red'
+    fontSize: width*0.09,
+    color: 'red',
+    fontWeight: '600'
   }
 });
