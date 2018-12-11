@@ -10,6 +10,20 @@ class Server {
         resolve(watchBrand.data)
       }).catch(err=>{
         console.error('Get brand: ', err)
+        reject()
+      })
+    })
+  }
+
+  static getWatchEstimate (id) {
+    return new Promise((resolve, reject) => {
+      const URL = 'https://mearto.com/brands/'+ id +'/stats.json'
+      console.log(URL);
+      axios.get(URL).then(watchEstimate=>{
+        resolve(watchEstimate.data)
+      }).catch(err=>{
+        console.error('Get estimate: ', err)
+        reject()
       })
     })
   }

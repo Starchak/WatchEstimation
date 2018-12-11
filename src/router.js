@@ -29,7 +29,7 @@ export const Root = createStackNavigator({
   }
 },
 {
-	initialRouteName: 'Camera',
+	initialRouteName: 'Info',
 	mode: 'modal',
 	headerMode: 'screen',
 });

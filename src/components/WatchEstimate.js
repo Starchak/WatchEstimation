@@ -20,8 +20,8 @@ class WatchEstimate extends Component {
         <View style={styles.estimateBottom}>
           <View style={styles.priceBlock}>
             <View>
-              <Text style={styles.topPriceText}>Price from</Text>
-              <Text style={styles.priceText}>$1200</Text>
+              <Text style={styles.topPriceText}>Estimate min</Text>
+              <Text style={styles.priceText}>${this.props.estimate.min}</Text>
             </View>
           </View>
           <View style={[styles.priceBlock, {flex: 0.5}]}>
@@ -29,8 +29,8 @@ class WatchEstimate extends Component {
           </View>
           <View style={styles.priceBlock}>
             <View>
-              <Text style={styles.topPriceText}>Price to</Text>
-              <Text style={styles.priceText}>$1350</Text>
+              <Text style={styles.topPriceText}>Estimate max</Text>
+              <Text style={styles.priceText}>${this.props.estimate.max}</Text>
             </View>
           </View>
         </View>

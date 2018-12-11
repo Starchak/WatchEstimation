@@ -48,6 +48,7 @@ class FirebaseApi {
           })
           .catch((error) => {
             console.log(error);
+            reject()
           })
       })
     })
@@ -61,6 +62,7 @@ class FirebaseApi {
         resolve(response)
       }).catch(error=>{
         console.log(error);
+        reject()
       })
     })
   }

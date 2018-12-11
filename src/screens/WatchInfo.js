@@ -23,7 +23,9 @@ class WatchInfo extends Component {
     loadText: '',
     watchName: 'Omega Speedmaster',
     watchDescription: 'Profesional',
-    watchEstimate: false
+    watchEstimate: false,
+    estimate: [],
+    id: null
   }
 
   componentDidMount () {
@@ -38,10 +40,19 @@ class WatchInfo extends Component {
         this.setState({
           loadText: '',
           watchName: watchBrand.brand,
-          watchDescription: watchBrand.model
+          watchDescription: watchBrand.model,
+          id: watchBrand.id
         })
+      }).catch(()=>{
+        this.onErore()
       })
+    }).catch(()=>{
+      this.onErore()
     })
+  }
+
+  onErore () {
+    this.setState({ loadText: 'Something went wrong :(' })
   }
 
   // Navigate to camera when Camera btn press
@@ -50,11 +61,21 @@ class WatchInfo extends Component {
   }
 
   confirmWatchInfo = (watchName, watchDescription) => {
-    console.log('Send info to confirm \nName: ', watchName, '\nDescription: ', watchDescription);
-    this.setState({
-      watchName: watchName,
-      watchDescription: watchDescription,
-      watchEstimate: true
+    this.setState({ loadText: 'Pleas wait...' })
+    Server.getWatchEstimate(this.state.id).then(watchEstimate=>{
+      console.log(watchEstimate);
+      this.setState({
+        loadText: '',
+        watchName: watchName,
+        watchDescription: watchDescription,
+        estimate: {
+          min: watchEstimate.estimate_min,
+          max: watchEstimate.estimate_max
+        },
+        watchEstimate: true
+      })
+    }).catch(()=>{
+      this.onErore()
     })
   }
 
@@ -73,6 +94,7 @@ class WatchInfo extends Component {
               <WatchEstimate
                 watchName={this.state.watchName}
                 watchDescription={this.state.watchDescription}
+                estimate={this.state.estimate}
                />
               :
               <EditWatchInfo
