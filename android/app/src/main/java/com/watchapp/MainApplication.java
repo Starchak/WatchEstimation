@@ -3,6 +3,8 @@ package com.watchapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import io.github.traviskn.rnuuidgenerator.RNUUIDGeneratorPackage;
+import com.RNFetchBlob.RNFetchBlobPackage;
 import com.imagepicker.ImagePickerPackage;
 import org.reactnative.camera.RNCameraPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
@@ -26,6 +28,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNUUIDGeneratorPackage(),
+            new RNFetchBlobPackage(),
             new ImagePickerPackage(),
             new RNCameraPackage(),
             new RNGestureHandlerPackage()

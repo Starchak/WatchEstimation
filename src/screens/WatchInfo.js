@@ -11,6 +11,8 @@ import {
   WatchEstimate
 } from '../components'
 
+import FirebaseApi from '../api/firebase'
+import Server from '../api/server'
 
 import styles from '../styles'
 
@@ -28,7 +30,17 @@ class WatchInfo extends Component {
     let img = this.props.navigation.getParam('img', '')
     this.setState({
       watchImg: img,
-      loadText: ''
+      loadText: 'Pleas wait...'
+    })
+    FirebaseApi.uploadImg(img).then(jsonInfo=>{
+      Server.getWatchBrand(jsonInfo).then(watchBrand=>{
+        console.log(watchBrand);
+        this.setState({
+          loadText: '',
+          watchName: watchBrand.brand,
+          watchDescription: watchBrand.model
+        })
+      })
     })
   }
 
